@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="n9Gfs9ke25Ai-HCrXjpC">
+    <mxGraphModel dx="1232" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-33" parent="1" style="rounded=1;whiteSpace=wrap;dashed=1;dashPattern=8 8;textDirection=ltr;rotation=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="Kotlin e &#xa;Spring Boot" vertex="1">
+          <mxGeometry height="245" width="220" x="560" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;textDirection=vertical-rl;rotation=-180;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" value="Kotlin&lt;div&gt;Multipltafroma&lt;/div&gt;" vertex="1">
+          <mxGeometry height="510" width="220" x="160" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-1" parent="1" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.cell_phone_android_proportional;" value="Mobile - Android" vertex="1">
+          <mxGeometry height="160" width="80" x="230" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-3" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Oxe_Set-2431/Web-1171.png" value="Web" vertex="1">
+          <mxGeometry height="100" width="100" x="220" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-4" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Managed_Desktop.svg;" value="Desktop" vertex="1">
+          <mxGeometry height="79.2" width="110" x="220" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-5" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" value="Usuario" vertex="1">
+          <mxGeometry height="78" width="78" x="60" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-6" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=-0.027;entryY=0.006;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="410" y="450" as="sourcePoint" />
+            <mxPoint x="460" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-7" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=-0.012;entryY=0.432;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="300" y="510" as="sourcePoint" />
+            <mxPoint x="383" y="595" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-8" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-5" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" target="jsATf-Z2YZxt6tt-4OPm-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="150" y="480" as="sourcePoint" />
+            <mxPoint x="233" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-9" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=3.7385711669921875;" value="Storage" vertex="1">
+          <mxGeometry height="30" width="50" x="300" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-10" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=3.7385711669921875;" value="Storage" vertex="1">
+          <mxGeometry height="30" width="50" x="300" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-11" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=3.7385711669921875;" value="Storage" vertex="1">
+          <mxGeometry height="30" width="50" x="300" y="459.2" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-12" parent="1" style="image;html=1;image=img/lib/clip_art/networking/Print_Server_128x128.png" value="Backend" vertex="1">
+          <mxGeometry height="110" width="130" x="640" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-13" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-1" style="endArrow=classic;html=1;rounded=0;entryX=-0.052;entryY=0.144;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-22" value="HTTP Request">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0036" y="6" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="410" y="270" as="sourcePoint" />
+            <mxPoint x="460" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-14" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-22" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="550" y="320" as="sourcePoint" />
+            <mxPoint x="390" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-15" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-3" style="endArrow=classic;html=1;rounded=0;entryX=0.016;entryY=0.39;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-22" value="HTTP&amp;nbsp;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Request&lt;/span&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="360" y="130" as="sourcePoint" />
+            <mxPoint x="758" y="257" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-16" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-22" style="endArrow=classic;html=1;rounded=0;entryX=0.855;entryY=0;entryDx=0;entryDy=1.0841856384277344;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-10" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="600" y="307" as="sourcePoint" />
+            <mxPoint x="890" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-17" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-4" style="endArrow=classic;html=1;rounded=0;entryX=0.039;entryY=0.818;entryDx=0;entryDy=0;exitX=0.989;exitY=0.224;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-22" value="HTTP Request">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="420" y="315" as="sourcePoint" />
+            <mxPoint x="714" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-18" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-22" style="endArrow=classic;html=1;rounded=0;entryX=0.948;entryY=0.431;entryDx=0;entryDy=0;exitX=-0.007;exitY=0.925;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="508" as="sourcePoint" />
+            <mxPoint x="861" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-19" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="MariaDB" vertex="1">
+          <mxGeometry height="80" width="60" x="870" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-20" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-12" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-19" value="">
+          <mxGeometry height="100" relative="1" width="100" as="geometry">
+            <mxPoint x="740" y="300" as="sourcePoint" />
+            <mxPoint x="480" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="API REST" vertex="1">
+          <mxGeometry height="170" width="40" x="580" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-27" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-21" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="jsATf-Z2YZxt6tt-4OPm-28" value="MQTT Manda&amp;nbsp;&lt;div&gt;informações&amp;nbsp;&lt;/div&gt;&lt;div&gt;para Tópico&lt;/div&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="410" y="440" as="sourcePoint" />
+            <mxPoint x="460" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Mosquitto Broker" vertex="1">
+          <mxGeometry height="60" width="120" x="780" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-29" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="199.5" width="184" x="1057" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-34" parent="jsATf-Z2YZxt6tt-4OPm-29" style="rounded=1;whiteSpace=wrap;dashed=1;dashPattern=8 8;textDirection=ltr;rotation=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="C++ com ESP32" vertex="1">
+          <mxGeometry height="245" width="220" x="-36" y="-45.5" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-21" parent="jsATf-Z2YZxt6tt-4OPm-29" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Electronic_Line-2454/3-electronic-arduino-chipset-icon-2-1297.svg" value="Dispositivo IOT ESP32" vertex="1">
+          <mxGeometry height="90" width="90" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-26" parent="jsATf-Z2YZxt6tt-4OPm-29" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.iot_thing_temperature_sensor;" value="" vertex="1">
+          <mxGeometry height="78" width="78" x="70" as="geometry" />
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-30" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-12" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.824;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-28" value="Pedir dados&lt;div&gt;do Tópico&lt;/div&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="790" y="350" as="sourcePoint" />
+            <mxPoint x="862.5" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jsATf-Z2YZxt6tt-4OPm-31" edge="1" parent="1" source="jsATf-Z2YZxt6tt-4OPm-28" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.574;exitY=0.038;exitDx=0;exitDy=0;exitPerimeter=0;" target="jsATf-Z2YZxt6tt-4OPm-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="720" y="430" as="sourcePoint" />
+            <mxPoint x="460" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
