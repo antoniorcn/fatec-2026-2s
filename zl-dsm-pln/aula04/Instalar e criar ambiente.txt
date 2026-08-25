@@ -1,0 +1,11 @@
+# Instalar a biblioteca virtualenv no python
+python -m pip install virtualenv
+
+# Criar o ambiente virtualenv
+python -m virtualenv <diretorio onde ficar o virtualenv>
+# Exemplo: python -m virtualenv C:\git\fatec-2026-2s\zl-dsm-pln\.venv
+
+# Ativar o ambiente do virtualenv
+<diretorio onde esta o virtualenv>\Scripts\activate
+
+# Exemplo: C:\git\fatec-2026-2s\zl-dsm-pln\.venv\Scripts\activate

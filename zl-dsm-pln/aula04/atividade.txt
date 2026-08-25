@@ -1,0 +1,5 @@
+Riqueza Lexical
+
+Crie um programa que pegue duas letras de música, normalize os textos da mesma forma, gere os tokens
+em variáveis separadas, crie os vocabularios dessas músicas, calcule a riqueza lexical de cada uma,
+e mostre qual delas tem a melhor riqueza lexical.

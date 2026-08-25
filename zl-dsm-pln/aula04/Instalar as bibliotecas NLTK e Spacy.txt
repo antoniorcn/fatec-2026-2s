@@ -1,0 +1,8 @@
+# Ja com o ambiente virtual ativo
+
+python -m pip install -U nltk
+
+python -m pip install -U spacy
+python -m spacy download pt_core_news_sm
+
+python -m pip install wordcloud matplotlib
