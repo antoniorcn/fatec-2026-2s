@@ -1,0 +1,2 @@
+Instalar o Pygame:
+python -m pip install pygame

@@ -1,0 +1,37 @@
+GET http://localhost:8080/projetos HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/projetos HTTP/1.1
+Content-Type: application/json
+
+{
+    "id" : null,
+    "nome" : "Ferias Frustradas",
+    "descricao" : "Férias programas para 2027",
+    "dataInicio" : "2027-01-01",
+    "dataEntrega" : "2027-02-01",
+    "status" : "Planejamento"
+}
+
+###
+
+DELETE http://localhost:8080/projetos/1 HTTP/1.1
+
+# DELETE http://localhost:8080/projetos/1 Path Variable
+# DELETE http://localhost:8080/projetos?id=1  Query Parameters
+
+
+###
+
+PUT http://localhost:8080/projetos/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "nome" : "Ferias Fantasticas",
+  "descricao" : "Férias fantasticas programas para 2027",
+  "dataInicio" : "2027-01-01",
+  "dataEntrega" : "2027-02-01",
+  "status" : "Planejamento"
+}
