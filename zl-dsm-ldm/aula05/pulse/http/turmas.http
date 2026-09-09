@@ -1,0 +1,46 @@
+GET http://localhost:8080/turmas HTTP/1.1
+
+###
+
+POST http://localhost:8080/turmas HTTP/1.1
+Content-Type: application/json
+
+{
+    "id" : 0,
+    "codigo" : "T001",
+    "nomeDisciplina" : "Processamento de Linguagem Natural",
+    "semestre" : 2,
+    "ano" : 2026
+}
+
+
+###
+
+POST http://localhost:8080/turmas HTTP/1.1
+Content-Type: application/json
+
+{
+  "id" : 0,
+  "codigo" : "T002",
+  "nomeDisciplina" : "Laboratório de Desenvolvimento Multiplataforma",
+  "semestre" : 2,
+  "ano" : 2026
+}
+
+###
+
+DELETE http://localhost:8080/turmas/1 HTTP/1.1
+
+
+###
+
+PUT http://localhost:8080/turmas/3 HTTP/1.1
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "codigo" : "T003",
+  "nomeDisciplina" : "Matematica",
+  "semestre" : 2,
+  "ano" : 2026
+}
