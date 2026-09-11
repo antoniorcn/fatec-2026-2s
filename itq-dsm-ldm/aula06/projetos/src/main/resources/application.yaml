@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: projetos
+  datasource:
+    url: jdbc:mariadb://localhost/itq_projetos?createDatabaseIfNotExist=true
+    username: root
+    password: 123456
+    # driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
