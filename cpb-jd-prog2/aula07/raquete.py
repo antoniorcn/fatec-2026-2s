@@ -13,25 +13,33 @@ tela = pygame.display.set_mode( (WIDTH, HEIGHT), 0, 32)
 # Trocar estas variaveis por dicionarios
 # um chamado (ball) e outro chamado (raquete)
 
-pygame.image.load("./raquete_a.png")
+raquete_a = {"x": 200, "vel": 0, "imagem" : None}
+bloco_r = {"x": 100, "y": 100, "imagem": None}
 
-# raquete_a_x = 200
-# raquete_a_vel = 0
+blocos = [{"x": 32, "y": 100, "imagem": None},
+          {"x": 96, "y": 100, "imagem": None},
+          {"x": 160, "y": 100, "imagem": None},
+          {"x": 224, "y": 100, "imagem": None},
+          {"x": 288, "y": 100, "imagem": None}]
 
-raquete_a = {"x": 200, "vel": 0}
+# Surface (Imagem) da Raquete
+raquete_imagem = pygame.image.load("./raquete_a.png").convert_alpha()
+bloco_r_imagem = pygame.image.load("./bloco_red.png").convert_alpha()
+raquete_a["imagem"] = pygame.transform.scale( raquete_imagem, (128, 32) )
+for i in range(5):
+    blocos[i]["imagem"] = pygame.transform.scale(bloco_r_imagem, (64, 32))
 
 ball = {"x": 300, "y": 400, "vel_x": 1, "vel_y": 1}
-# ball_x = 300
-# ball_y = 400
-# ball_vel_x = 1
-# ball_vel_y = 1
+
+
 
 jogando = True
 while jogando:
     # Calcular as regras
+    raquete_a["imagem"].get_size() # (64, 16)  [0]
     raquete_a["x"] = raquete_a["x"] + raquete_a["vel"]
-    if (raquete_a["x"] + 100) > WIDTH:
-        raquete_a["x"] = 500
+    if (raquete_a["x"] + raquete_a["imagem"].get_size()[0]) > WIDTH:
+        raquete_a["x"] = WIDTH - raquete_a["imagem"].get_size()[0]
     if raquete_a["x"] < 0:
         raquete_a["x"] = 0
 
@@ -48,15 +56,27 @@ while jogando:
     elif ball["y"] < 0:
         ball["vel_y"] = 1
 
-    raquete_rect = pygame.Rect( ( (raquete_a["x"], 700), (100, 30) ) )
+
+    raquete_rect = pygame.Rect( ( (raquete_a["x"], 700),
+                                 raquete_a["imagem"].get_size() ) )
+
 
     if raquete_rect.collidepoint(ball["x"], ball["y"]):
         ball["vel_y"] = ball["vel_y"] * -1
 
+    for i in range(5):
+        bloco_r_rect = pygame.Rect( ( (blocos[i]["x"], blocos[i]["y"]),
+                                         (64, 32) ))
+        if bloco_r_rect.collidepoint(ball["x"], ball["y"]):
+            ball["vel_y"] = ball["vel_y"] * -1
+
 
     # Pintar a tela
     tela.fill(BLACK)
-    pygame.draw.rect(tela, RED, raquete_rect, 0 )
+    # pygame.draw.rect(tela, RED, raquete_rect, 0 )
+    tela.blit( raquete_a["imagem"], (raquete_a["x"], 700))
+    for i in range(5):
+        tela.blit( blocos[i]["imagem"], (blocos[i]["x"], blocos[i]["y"]))
     pygame.draw.circle(tela, WHITE, (ball["x"], ball["y"]), 10.0, 3)
     pygame.display.update()
     # Capturar os eventos
