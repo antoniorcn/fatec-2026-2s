@@ -7,7 +7,7 @@ import java.util.*
 @Component
 class JwtUtils {
     private val SECRET_KEY = Keys.hmacShaKeyFor(
-            "IstoEumaChavesecretadoAntonioNaAulaDeSpringBoot2026".toByteArray()
+            "IstoEumaChaveSecretaDoProfAntonioNaAulaDeSpringBoot2026".toByteArray()
     )
 
     private val expirationTime = 60 * 60 * 1000 // 1 hour
