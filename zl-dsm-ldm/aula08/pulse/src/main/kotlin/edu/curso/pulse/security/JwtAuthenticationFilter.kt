@@ -32,7 +32,11 @@ class JwtAuthenticationFilter(
                 SecurityContextHolder.getContext().authentication = authentication
                 filterChain.doFilter(request, response)
                 return
+            } else {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token JWT inválido ou inexistente")
+                return
             }
         }
+        filterChain.doFilter(request, response)
     }
 }

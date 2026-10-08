@@ -17,7 +17,7 @@ class SecurityConfiguration(
     fun securityFilterChain(http : HttpSecurity) : SecurityFilterChain {
         http {
             csrf{ disable() }
-            httpBasic { }
+            httpBasic { disable() }
             formLogin{ disable() }
             sessionManagement { sessionCreationPolicy = SessionCreationPolicy.STATELESS }
             authorizeHttpRequests {

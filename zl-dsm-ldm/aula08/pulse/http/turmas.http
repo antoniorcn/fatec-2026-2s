@@ -2,7 +2,7 @@ GET http://localhost:8080/turmas HTTP/1.1
 ###
 
 GET http://localhost:8080/turmas HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbnRvbmlvQHRlc3RlLmNvbSIsInJvbGUiOlt7ImF1dGhvcml0eSI6IlVTRVIifV0sImlhdCI6MTc5MDc3NDk2MiwiZXhwIjoxNzkwNzc4NTYyfQ.-aGKH-xIk2Zd4apAKBtmPovr7WkCqmWHNYs8hexjjT4
+Authorization: Bearer {{token}}
 ###
 
 GET http://localhost:8080/turmas HTTP/1.1
