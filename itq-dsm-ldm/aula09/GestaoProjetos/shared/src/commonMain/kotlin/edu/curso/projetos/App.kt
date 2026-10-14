@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text
@@ -21,7 +23,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import edu.curso.projetos.icons.menu
 import edu.curso.projetos.model.Projeto
+import gestaoprojetos.shared.generated.resources.Res
+import gestaoprojetos.shared.generated.resources.home_24px
+import org.jetbrains.compose.resources.painterResource
 
 var c = 60
 
@@ -82,6 +88,26 @@ fun ProjetoFormulario(){
     val status = remember { mutableStateOf("") }
 
     Column {
+        Icon(
+            painter = painterResource(
+                Res.drawable.home_24px
+            ),
+
+            contentDescription = "Início",
+
+            tint = MaterialTheme.colorScheme.primary,
+
+            modifier = Modifier.size(32.dp)
+        )
+        Icon(
+            menu,
+
+            contentDescription = "Menu",
+
+            tint = MaterialTheme.colorScheme.primary,
+
+            modifier = Modifier.size(32.dp)
+        )
         TextField(
             // O encadeamento é baseado no padrão de projetos chamado Fluency
             modifier = Modifier
