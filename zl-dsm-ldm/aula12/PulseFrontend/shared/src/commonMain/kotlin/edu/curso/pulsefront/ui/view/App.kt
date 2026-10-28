@@ -122,9 +122,18 @@ fun CustomTitle( backStackModulos : NavBackStack<ModulosRotas>) {
 fun App() {
 
     val scope = rememberCoroutineScope()
-    val turmaViewModel = viewModel { TurmaViewModel() }
-    val cursosViewModel = viewModel { CursosViewModel() }
     val principalViewModel = viewModel { PrincipalViewModel(scope) }
+    val turmaViewModel = viewModel { TurmaViewModel(
+        principalViewModel::mostrarMensagem
+    ) }
+    val cursosViewModel = viewModel { CursosViewModel(
+        principalViewModel::mostrarMensagem
+//        { mensagem, duracao ->
+//            principalViewModel.mostrarMensagem(mensagem, duracao)
+//        }
+    )
+    }
+
 
     MaterialTheme {
         ModalNavigationDrawer(
@@ -163,14 +172,20 @@ fun App() {
                         cursosViewModel.backStack,)
                 },
                 floatingActionButton = {
-                    Button(onClick = { turmaViewModel.navigation.value = "FORM" }) {
-                        Icon(
-                            painterResource(Res.drawable.add_circle_24px),
-                            contentDescription = "Add",
-                            tint = Color.Yellow
-                        )
+                    if (turmaViewModel.backStack.last() == TurmaRotas.listagem) {
+                        Button(onClick = {
+                            turmaViewModel.backStack.clear()
+                            turmaViewModel.backStack.add(TurmaRotas.formulario)
+                        }) {
+                            Icon(
+                                painterResource(Res.drawable.add_circle_24px),
+                                contentDescription = "Add",
+                                tint = Color.Yellow
+                            )
+                        }
                     }
-                }
+                },
+                snackbarHost = { SnackbarHost(hostState = principalViewModel.snack) }
             ) { paddingIt ->
                 NavDisplay(
                     backStack = principalViewModel.backStackModules,

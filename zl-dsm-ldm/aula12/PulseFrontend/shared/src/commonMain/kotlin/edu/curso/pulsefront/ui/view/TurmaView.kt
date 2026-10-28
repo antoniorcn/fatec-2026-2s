@@ -1,28 +1,16 @@
 package edu.curso.pulsefront.ui.view
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.NavBackStack
 import edu.curso.pulsefront.ui.components.MeuTextField
-import edu.curso.pulsefront.ui.navigation.CursoRotas
 import edu.curso.pulsefront.ui.navigation.TurmaRotas
 import edu.curso.pulsefront.viewmodel.TurmaViewModel
 import org.jetbrains.compose.resources.painterResource
@@ -84,8 +72,9 @@ fun Formulario( padding : PaddingValues,
 
 @Composable
 fun Listagem( padding : PaddingValues, turmaViewModel: TurmaViewModel ) {
+    val lista = turmaViewModel.lista.collectAsState()
     Column(modifier = Modifier.padding( padding )) {
-        for (turma in turmaViewModel.listaView) {
+        for (turma in lista.value) {
             Row (modifier = Modifier.fillMaxWidth()
                 .height(150.dp)
                 .padding(horizontal = 16.dp, vertical = 8.dp)

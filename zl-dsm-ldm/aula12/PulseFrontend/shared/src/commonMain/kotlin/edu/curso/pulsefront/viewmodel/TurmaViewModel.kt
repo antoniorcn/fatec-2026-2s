@@ -1,69 +1,86 @@
 package edu.curso.pulsefront.viewmodel
 
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation3.runtime.NavBackStack
 import edu.curso.pulsefront.model.Turma
-import edu.curso.pulsefront.ui.navigation.ModulosRotas
 import edu.curso.pulsefront.ui.navigation.TurmaRotas
+import kotlinx.coroutines.flow.*
 
-class TurmaViewModel : ViewModel() {
-    val lista : SnapshotStateList<Turma> = mutableStateListOf()
-    val listaView : SnapshotStateList<Turma> = mutableStateListOf()
+class TurmaViewModel(
+    private val mandarMensagem : ( String, SnackbarDuration) -> Unit
+) : ViewModel() {
 
-    var indiceId : Long = 0
+    private val _lista : MutableStateFlow<List<Turma>> = MutableStateFlow(listOf(
+        Turma(
+            id = 1,
+            codigo = "DSA",
+            nomeDisciplina = "Desenvolvimento de Sistemas para Aplicações",
+            semestre = 2,
+            ano = 2026
+        ),
+        Turma(
+            id = 2,
+            codigo = "LDM",
+            nomeDisciplina = "Linguagem de Modelagem",
+            semestre = 2,
+            ano = 2026
+        ),
+    ))
+    private var _filtro : MutableStateFlow<String> = MutableStateFlow("")
+    val filtro = _filtro.asStateFlow()
 
-    var filtro : MutableState<String> = mutableStateOf("")
+    fun atualizarFiltro( novoFiltro : String ) {
+        _filtro.value = novoFiltro
+    }
+
+    val lista = combine( _lista, _filtro ) {
+        listaOriginal, filtroOriginal ->
+        if (listaOriginal.isEmpty()) {
+            listaOriginal
+        } else {
+            listaOriginal.filter{ objTurma ->
+                objTurma.nomeDisciplina.contains(filtroOriginal, ignoreCase = true)
+            }
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    var indiceId : Long = 2
+
+
 
     var id : MutableState<String> = mutableStateOf("")
     var codigo : MutableState<String> = mutableStateOf("")
     var nomeDisciplina : MutableState<String> = mutableStateOf("")
     var semestre : MutableState<String> = mutableStateOf("")
     var ano : MutableState<String> = mutableStateOf("")
-    var mensagem : MutableState<String> = mutableStateOf("")
-
-    val navigation : MutableState<String> = mutableStateOf("LISTA")
 
     val backStack = NavBackStack<TurmaRotas>(TurmaRotas.listagem)
 
-    fun updateListaView() {
-        listaView.clear()
-        if (filtro.value.isEmpty()) {
-            listaView.addAll(lista)
-        } else {
-            listaView.addAll(lista.filter { it.nomeDisciplina.contains(filtro.value, ignoreCase = true) })
-        }
-    }
-
-    fun atualizarFiltro( novoFiltro : String ) {
-        filtro.value = novoFiltro
-        updateListaView()
-    }
-
     fun apagar( id : Long ) {
-        val tamanho = lista.size
-        lista.removeAll { it.id == id }
-        mensagem.value = if (lista.size < tamanho) {
-            "Turma $id apagada com sucesso!"
+        val turmaEncontrada = _lista.value.firstOrNull { turma -> turma.id == id }
+        if (turmaEncontrada != null) {
+            _lista.update { listaOriginal -> listaOriginal - turmaEncontrada }
+            mandarMensagem("Turma $id apagada com sucesso!", SnackbarDuration.Long)
         } else {
-            "Turma $id não encontrada!"
+            mandarMensagem("Turma $id não encontrada!", SnackbarDuration.Long)
         }
-        updateListaView()
     }
 
     fun editar( id : Long ) {
-        val turma = lista.find { it.id == id }
-        if (turma != null) {
-            this.id.value = turma.id.toString()
-            nomeDisciplina.value = turma.nomeDisciplina
-            codigo.value = turma.codigo
-            semestre.value = turma.semestre.toString()
-            ano.value = turma.ano.toString()
-            navigation.value = "FORM"
-            mensagem.value = "Editando turma $id"
+        val turmaEncontrada = _lista.value.firstOrNull { turma -> turma.id == id }
+        if (turmaEncontrada != null) {
+            this.id.value = turmaEncontrada.id.toString()
+            nomeDisciplina.value = turmaEncontrada.nomeDisciplina
+            codigo.value = turmaEncontrada.codigo
+            semestre.value = turmaEncontrada.semestre.toString()
+            ano.value = turmaEncontrada.ano.toString()
+            backStack.clear()
+            backStack.add(TurmaRotas.formulario)
+            mandarMensagem("Editando turma $id", SnackbarDuration.Long)
         }
     }
 
@@ -75,24 +92,32 @@ class TurmaViewModel : ViewModel() {
             ano = ano.value.toIntOrNull() ?: 2026
         )
         if (id.value != "") {
-            val indice = lista.indexOfFirst { it.id == id.value.toLong() }
-            if (indice >= 0) {
-                turma = turma.copy(id = id.value.toLong())
-                lista[indice] = turma
+            val idNumber = id.value.toLong()
+            val turmaEncontrada = _lista.value.firstOrNull { turma -> turma.id == idNumber }
+            if (turmaEncontrada != null) {
+                _lista.update {
+                    listaOriginal -> listaOriginal.map {
+                        turmaOriginal -> if(turma.id == idNumber) {
+                            turma.copy( id = idNumber)
+                        } else {
+                            turmaOriginal
+                        }
+                    }
+                }
             }
         } else {
             indiceId = indiceId + 1
             turma = turma.copy(id = indiceId)
-            lista.add(turma)
+            _lista.update { listaOriginal -> listaOriginal + turma }
         }
         id.value = ""
         codigo.value = ""
         nomeDisciplina.value = ""
         semestre.value = ""
         ano.value = ""
-        updateListaView()
-        mensagem.value = "Turma ${turma.codigo} salva com sucesso!"
-        navigation.value = "LISTA"
+        backStack.clear()
+        backStack.add(TurmaRotas.listagem)
+        mandarMensagem("Turma ${turma.codigo} salva com sucesso!", SnackbarDuration.Long)
     }
 
     fun cancelar() {
@@ -100,9 +125,9 @@ class TurmaViewModel : ViewModel() {
         nomeDisciplina.value = ""
         semestre.value = ""
         ano.value = ""
-        updateListaView()
-        mensagem.value = "Operação cancelada!"
-        navigation.value = "LISTA"
+        mandarMensagem("Operação cancelada!", SnackbarDuration.Long)
+        backStack.clear()
+        backStack.add(TurmaRotas.listagem)
     }
 
 }
