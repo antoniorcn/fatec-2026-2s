@@ -6,6 +6,9 @@ import org.springframework.security.config.annotation.web.invoke
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.CorsConfigurationSource
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 
 @Configuration
@@ -17,6 +20,7 @@ class SecurityConfiguration(
     fun securityFilterChain(http : HttpSecurity) : SecurityFilterChain {
         http {
             csrf{ disable() }
+            cors{ configurationSource = corsConfigurationSource() }
             httpBasic { disable() }
             formLogin{ disable() }
             sessionManagement { sessionCreationPolicy = SessionCreationPolicy.STATELESS }
@@ -30,4 +34,19 @@ class SecurityConfiguration(
         }
         return http.build()
     }
+    
+    @Bean
+    fun corsConfigurationSource(): CorsConfigurationSource {
+        val configuration = CorsConfiguration().apply {
+            allowedOriginPatterns = listOf("*") // Permite qualquer origem
+            allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+            allowedHeaders = listOf("*")
+            allowCredentials = false
+        }
+        
+        val source = UrlBasedCorsConfigurationSource()
+        source.registerCorsConfiguration("/**", configuration)
+        return source
+    }
+    
 }
