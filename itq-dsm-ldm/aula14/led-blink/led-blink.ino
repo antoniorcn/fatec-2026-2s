@@ -1,4 +1,4 @@
-#define PINO 21
+#define PINO 2
 
 void setup() {
   pinMode(PINO, OUTPUT);
